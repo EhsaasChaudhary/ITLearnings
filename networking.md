@@ -4,8 +4,8 @@
 
 ### Usage
 
-- **```bash ifconfig```**: Displays active network interfaces along with their IP addresses, subnet masks, and MAC addresses.
-- **```bash ifconfig -a```**: Lists detailed information about all network interfaces, including inactive ones.
+- **`ifconfig`**: Displays active network interfaces along with their IP addresses, subnet masks, and MAC addresses.
+- **`ifconfig -a`**: Lists detailed information about all network interfaces, including inactive ones.
 
 ### Example Output
 
@@ -28,67 +28,100 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX packets 60  bytes 7052 (7.0 KB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
-eth0 - ethernet interface
-UP - the interface is active.
-BROADCAST - Supports broadcast of packets.
-RUNNING - The interface driver is operational.
-MULTICAST - Supports multicase communication.
+# Key Components of `ifconfig` Output
+
+## Network Interface Information
+
+### `eth0` - Ethernet Interface
+
+- **Flags**: Indicates the interface state and capabilities.
+  - **UP**: The interface is active.
+  - **BROADCAST**: Supports broadcast of packets.
+  - **RUNNING**: The interface driver is operational.
+  - **MULTICAST**: Supports multicast communication.
+- **MTU (Maximum Transmission Unit)**: Maximum size of packets (in bytes). Default is 1500.
+
+## IPv4 Information
+
+- **`inet`**: IPv4 address of the interface (e.g., `172.24.240.76`).
+- **`netmask`**: Subnet mask, indicating the size of the subnet. For example:
+  - `255.255.240.0` represents a 20-bit network and a 12-bit host (2^12 = 4096 IPs).
+  - **Binary**: `11111111.11111111.11110000.00000000`.
+- **`broadcast`**: Address to broadcast packets to all devices on the subnet.
+
+## IPv6 Information
+
+- **`inet6`**: IPv6 address of the interface (e.g., `fe80::215:5dff:fe04:d5b0`).
+- **`prefixlen`**: Subnet size (e.g., `64`).
+- **`scopeid`**: Specifies the scope of the IPv6 address:
+  - **link**: Valid only on the same physical or logical link (e.g., `fe80::/10`).
+  - **global**: Valid across the entire IPv6 internet.
+
+## MAC Address
+
+- **`ether`**: MAC address of the interface (e.g., `00:15:5d:04:d5:b0`).
+
+## Transmission Queue
+
+- **`txqueuelen`**: Length of the queue for outgoing packets.
+
+## Packet Statistics
+
+```bash
+RX packets 12445 bytes 50759954 (50.7 MB):
+Number of packets (12445) and total data (50.7 MB) received by this interface.
+
+RX errors 0 dropped 0 overruns 0 frame 0:
+Indicates no errors occurred during reception.
+
+TX packets 9490 bytes 699021 (699.0 KB):
+Number of packets (9490) and total data (699 KB) transmitted by this interface.
+
+TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0:
+Indicates no errors occurred during transmission.
+```
+
+### RX (Receive)
+
+- **Packets**: Number of packets received.
+- **Bytes**: Total data received.
+- **Errors, Drops, Overruns, Frame**: Error statistics.
+
+### TX (Transmit)
+
+- **Packets**: Number of packets transmitted.
+- **Bytes**: Total data transmitted.
+- **Errors, Drops, Overruns, Carrier, Collisions**: Error statistics.
 
 
-MTU - Maximum transmission Unit (max size of packers in bytes) - default 1500
+# Loopback Interface (lo):
 
+Used for internal communication within the system.
 
-inet addr - IPv4 adrress 
-netmask - indicated the size of subnet, 20 bit network,12 bit host (2^12 = 4096 ips), here 11111111.11111111.11110000.00000000
-broadcast - packets sent to this id are delivered to all devices on subnet
+### Flags
+- UP
+- LOOPBACK
+- RUNNING
 
+### MTU (Maximum Transmission Unit):
+- 65536 (used internally)
 
-inet6 fe80::215:5dff:fe04:d5b0 - IPv6 address
-prefixlen 64 - indicates the subnet size
-scopeid 0x20<link> - scopeid specifies the scopee of IPv6 address (link means only ont this local link)
-    Common scope types include:
-        link-local: Valid only on the same physical or logical link (e.g., fe80::/10).
-        global: Valid across the entire IPv6 internet.
-        site-local (deprecated): Valid only within an administrative domain.
+### IPv4 Loopback:
+- **inet**: 127.0.0.1 (commonly referred to as localhost.)
+  - Traffic sent here stays within the same machine.
 
+### IPv6 Loopback:
+- **inet6**: ::1 (equivalent to 127.0.0.1 for IPv4)
 
-ether 00:15:5d:04:d5:b0 - MAC address
-txqueuelen - length of queue for outgoing packets
+## Packet Statistics:
+```bash
+RX packets 48 bytes 5650 (5.6 KB):
+Traffic received by the loopback interface.
 
+TX packets 48 bytes 5650 (5.6 KB):
+Traffic sent over the loopback interface.
+```
+- **RX (Receive)**: Traffic received by the loopback interface.
+- **TX (Transmit)**: Traffic sent over the loopback interface.
 
-Packet Statistics: (RX - receive, TX - transmit)
-    RX packets 12445 bytes 50759954 (50.7 MB):
-        Number of packets (12445) and total data (50.7 MB) received by this interface.
-    RX errors 0 dropped 0 overruns 0 frame 0:
-        Indicates no errors occurred during reception.
-    TX packets 9490 bytes 699021 (699.0 KB):
-        Number of packets (9490) and total data (699 KB) transmitted by this interface.
-    TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0:
-        Indicates no errors occurred during transmission.
-
-
-lo - loopback (used for internal communication)
-
-
-flags=73<UP,LOOPBACK,RUNNING>:
-Indicates the interface is up and operational, but it’s only for local loopback traffic.
-
-
-mtu 65536: only used internally.
-
-
-inet 127.0.0.1:
-IPv4 loopback address, commonly referred to as localhost. Traffic sent here stays within the same machine.
-
-
-inet6 ::1:
-IPv6 loopback address (equivalent to 127.0.0.1 for IPv4).
-
-
-Packet Statistics:
-    RX packets 48 bytes 5650 (5.6 KB):
-        Traffic received by the loopback interface.
-    TX packets 48 bytes 5650 (5.6 KB):
-        Traffic sent over the loopback interface.
-    No errors or dropped packets are reported, as expected for local traffic.
-    
+No errors or dropped packets are reported, as expected for local traffic.
