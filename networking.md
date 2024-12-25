@@ -4,8 +4,8 @@
 
 ### Usage
 
-- **`ifconfig`**: Displays active network interfaces along with their IP addresses, subnet masks, and MAC addresses.
-- **`ifconfig -a`**: Lists detailed information about all network interfaces, including inactive ones.
+- **```bash ifconfig```**: Displays active network interfaces along with their IP addresses, subnet masks, and MAC addresses.
+- **```bash ifconfig -a```**: Lists detailed information about all network interfaces, including inactive ones.
 
 ### Example Output
 
@@ -27,7 +27,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 60  bytes 7052 (7.0 KB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-
+```
 eth0 - ethernet interface
 UP - the interface is active.
 BROADCAST - Supports broadcast of packets.
