@@ -30,7 +30,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 ```
 ## Key Components of `ifconfig` Output
 
-## `eth0` - Ethernet Interface
+## `eth0` - Ethernet Interface:
 
 - **Flags**: Indicates the interface state and capabilities.
   - **UP**: The interface is active.
@@ -92,7 +92,7 @@ Indicates no errors occurred during transmission.
 - **Errors, Drops, Overruns, Carrier, Collisions**: Error statistics.
 
 
-## Loopback Interface (lo):
+## `lo` - Loopback Interface:
 
 Used for internal communication within the system.
 
