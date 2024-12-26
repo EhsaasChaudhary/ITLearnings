@@ -30,7 +30,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 ```
 ## Key Components of `ifconfig` Output
 
-### `eth0` - Ethernet Interface
+## `eth0` - Ethernet Interface
 
 - **Flags**: Indicates the interface state and capabilities.
   - **UP**: The interface is active.
@@ -39,7 +39,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
   - **MULTICAST**: Supports multicast communication.
 - **MTU (Maximum Transmission Unit)**: Maximum size of packets (in bytes). Default is 1500.
 
-## IPv4 Information
+### IPv4 Information
 
 - **`inet`**: IPv4 address of the interface (e.g., `172.24.240.76`).
 - **`netmask`**: Subnet mask, indicating the size of the subnet. For example:
@@ -47,7 +47,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
   - **Binary**: `11111111.11111111.11110000.00000000`.
 - **`broadcast`**: Address to broadcast packets to all devices on the subnet.
 
-## IPv6 Information
+### IPv6 Information
 
 - **`inet6`**: IPv6 address of the interface (e.g., `fe80::215:5dff:fe04:d5b0`).
 - **`prefixlen`**: Subnet size (e.g., `64`).
@@ -55,15 +55,15 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
   - **link**: Valid only on the same physical or logical link (e.g., `fe80::/10`).
   - **global**: Valid across the entire IPv6 internet.
 
-## MAC Address
+### MAC Address
 
 - **`ether`**: MAC address of the interface (e.g., `00:15:5d:04:d5:b0`).
 
-## Transmission Queue
+### Transmission Queue
 
 - **`txqueuelen`**: Length of the queue for outgoing packets.
 
-## Packet Statistics
+### Packet Statistics
 
 ```bash
 RX packets 12445 bytes 50759954 (50.7 MB):
