@@ -33,6 +33,7 @@ DNS is a critical component of the internet that translates human-friendly domai
 
 ### 1. Check DNS Resolution  
 **Command**: `nslookup`  
+## option 1:
 ```bash
 nslookup tablesmate.vercel.app
 ```
@@ -53,6 +54,7 @@ Address: 64:ff9b::401d:1141
 ```
 - **Server**: Outputed Server IP associated with the server (here tablesmate.vercel.app)
 
+## option 2:
 ```bash
 nslookup 216.198.79.65
 ```
