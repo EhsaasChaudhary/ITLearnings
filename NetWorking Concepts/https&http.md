@@ -55,3 +55,39 @@ curl https://example.com
 </html>
 ```
 - Output for both is same, in https what data is encrypted
+
+### 2. Check SSL Certificate ( for HTTPS website)
+
+- Command:
+```bash
+openssl s_client -connect tablesmate.vercel.app:443
+```
+- Output for above command contains certificate key, session id and various info for SSL Identification.
+
+### 3. Analyze HTTPS header (HTTP vs HTTPS)
+
+- Command:
+```bash
+curl -I https://tablesmate.vercel.app
+```
+- Command Output:
+```bash
+HTTP/2 200
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 435825
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline
+content-type: text/html; charset=utf-8
+date: Thu, 26 Dec 2024 17:18:24 GMT
+etag: "51a5a44d4b8759e7ec7ba4b1f83addcc"
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+vary: RSC, Next-Router-State-Tree, Next-Router-Prefetch
+x-matched-path: /
+x-vercel-cache: HIT
+x-vercel-id: bom1::pnqb8-1735233504785-0cf1f8236a74
+content-length: 20363
+```
+
+- output for the above command is header for the website such as status code, server, cache-control etc.
