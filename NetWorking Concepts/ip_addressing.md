@@ -28,9 +28,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX packets 60  bytes 7052 (7.0 KB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
-# Key Components of `ifconfig` Output
-
-## Network Interface Information
+## Key Components of `ifconfig` Output
 
 ### `eth0` - Ethernet Interface
 
@@ -94,7 +92,7 @@ Indicates no errors occurred during transmission.
 - **Errors, Drops, Overruns, Carrier, Collisions**: Error statistics.
 
 
-# Loopback Interface (lo):
+## Loopback Interface (lo):
 
 Used for internal communication within the system.
 
