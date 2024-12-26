@@ -80,8 +80,6 @@ IPv6 was developed as a successor to IPv4 to address its limitations, especially
 
 Despite IPv6's advantages, IPv4 remains widely used due to compatibility issues, the slow transition process, and the development of technologies like NAT (Network Address Translation) that prolong IPv4's usability.
 
-
-
 ## Command: `ifconfig`
 
 ### Usage
