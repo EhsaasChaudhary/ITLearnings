@@ -294,7 +294,7 @@ traceroute to tablesmate.vercel.app (64.29.17.65), 64 hops max
  64  *  *  *
 ```
 ### Elements in Traceroute:
--**Hop Number**: Each line starts with a hop number, indicating the sequential step in the route.
--**IP Address**: The IP address of the router or device at that hop.
--**Round-Trip Times (RTT)**: The time (in milliseconds) it takes for a packet to travel to that hop and back, displayed for three attempts.
--*****: Indicates that no response (ICMP packet) was received from that hop within the timeout period due to firewall (for security).
+- **Hop Number**: Each line starts with a hop number, indicating the sequential step in the route.
+- **IP Address**: The IP address of the router or device at that hop.
+- **Round-Trip Times (RTT)**: The time (in milliseconds) it takes for a packet to travel to that hop and back, displayed for three attempts.
+- *****: Indicates that no response (ICMP packet) was received from that hop within the timeout period due to firewall (for security).
