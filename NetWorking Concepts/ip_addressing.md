@@ -1,7 +1,5 @@
 # IP Addressing
 
-# IPv4 and IPv6
-
 ## **IPv4 (Internet Protocol version 4)**
 
 ### **Overview**
@@ -81,6 +79,7 @@ IPv6 was developed as a successor to IPv4 to address its limitations, especially
 - IPv6 offers scalability, better performance, and more robust security, making it the future of internet addressing. 
 
 Despite IPv6's advantages, IPv4 remains widely used due to compatibility issues, the slow transition process, and the development of technologies like NAT (Network Address Translation) that prolong IPv4's usability.
+
 
 
 ## Command: `ifconfig`
