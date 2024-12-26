@@ -206,13 +206,14 @@ No errors or dropped packets are reported, as expected for local traffic.
 
 ## Command: `ping`
 
-### Usage Example :
+### Usage Example:
 - Test if a host is reachable.
+
 ```bash
 ping tablesmate.vercel.app
 ```
 
-### Example Output
+### Example Output:
 
 ```bash
 PING tablesmate.vercel.app (216.198.79.65) 56(84) bytes of data.
@@ -237,37 +238,43 @@ PING tablesmate.vercel.app (216.198.79.65) 56(84) bytes of data.
 16 packets transmitted, 16 received, 0% packet loss, time 15182ms
 rtt min/avg/max/mdev = 43.209/60.052/83.673/10.957 ms
 ```
-## Components of `ping` Output
 
-- **216.198.79.65**: resolved IP of the domain.
+### Components of `ping` Output
+
+- **216.198.79.65**: Resolved IP of the domain.
 - **56(84) bytes of data**: Each ICMP packet contains 56 bytes of data, and the total packet size is 84 bytes (56 bytes of data + 28 bytes for headers).
--**64 bytes**: Size of response packet.
--**atl-cer1-755commercedr.cypresscom.net**: The hostname corresponding to the IP address of the server (216.198.79.65).
--**icmp_seq**: The squence number of ICMP packets (start with 1 and is incremented).
--**ttl**: The Time-To-Live (TTL) value, indicates maximum number of network hops the packet can take before being discarded. A TTL of 241 suggests the packet traversed several hops but is still within its initial limit.
--**time**: The round-trip time (RTT) for the packet, measured in milliseconds. This indicates how long it took for the packet to travel to the server and back.
+- **64 bytes**: Size of response packet.
+- **atl-cer1-755commercedr.cypresscom.net**: The hostname corresponding to the IP address of the server (216.198.79.65).
+- **icmp_seq**: The sequence number of ICMP packets (starts with 1 and increments).
+- **ttl**: The Time-To-Live (TTL) value, indicating the maximum number of network hops the packet can take before being discarded. A TTL of 241 suggests the packet traversed several hops but is still within its initial limit.
+- **time**: The round-trip time (RTT) for the packet, measured in milliseconds. This indicates how long it took for the packet to travel to the server and back.
 
-## Summary:
--**16 received**: The total number of packets successfully received back from the server.
--**16 packets transmitted**: The total number of ICMP packets sent to the server.
--**0% packet loss**: Indicates no packets were lost, showing a reliable connection.
--**time 15182ms**: Total time taken to transmit and receive all packets.
+### Summary:
 
-## RTT Statistics:
--**min**: Minimum RTT recorded (43.209 ms).
--**avg**: Average RTT across all packets (60.052 ms).
-_**max**: Maximum RTT recorded (83.673 ms).
-_**mdev**: Mean deviation, indicating variability in RTT (10.957 ms). A lower value suggests more consistent latency.
+- **16 received**: The total number of packets successfully received back from the server.
+- **16 packets transmitted**: The total number of ICMP packets sent to the server.
+- **0% packet loss**: Indicates no packets were lost, showing a reliable connection.
+- **time 15182ms**: Total time taken to transmit and receive all packets.
+
+### RTT Statistics:
+
+- **min**: Minimum RTT recorded (43.209 ms).
+- **avg**: Average RTT across all packets (60.052 ms).
+- **max**: Maximum RTT recorded (83.673 ms).
+- **mdev**: Mean deviation, indicating variability in RTT (10.957 ms). A lower value suggests more consistent latency.
+
+---
 
 ## Command: `traceroute`
 
-### Usage Example :
-- network diagnosis
+### Usage Example:
+- Network diagnosis
+
 ```bash
 traceroute tablesmate.vercel.app
 ```
 
-### Example Output
+### Example Output:
 
 ```bash
 traceroute to tablesmate.vercel.app (64.29.17.65), 64 hops max
@@ -285,8 +292,3 @@ traceroute to tablesmate.vercel.app (64.29.17.65), 64 hops max
 |
 |
  64  *  *  *
-```
-
-
-
-
