@@ -75,17 +75,9 @@ git init [directory]
   ```bash
   git init --shared=group
   ```
-- `--separate-git-dir=<git-dir>`: Creates a Git repository with the `.git` folder stored in a separate directory.
+- `-b <branch-name>`: Creates the repository with an initial branch named `<branch-name>` instead of the default `main` branch.
   ```bash
-  git init --separate-git-dir=/path/to/git-dir
-  ```
-- `--bare`: Initializes a bare repository that does not have a working directory. Bare repositories are typically used for remote repositories.
-  ```bash
-  git init --bare
-  ```
-- `--quiet`: Suppresses the output message.
-  ```bash
-  git init --quiet
+  git init -b <branch-name>
   ```
 
 ### **`git status`**
