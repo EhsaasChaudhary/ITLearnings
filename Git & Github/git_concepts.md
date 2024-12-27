@@ -34,3 +34,64 @@ GitHub is a web-based platform that hosts Git repositories. It provides a user-f
 - **GitHub**: A platform that hosts Git repositories and enhances collaboration with additional tools and features.
 
 ---
+
+## **Working Directory and Staging Area**
+
+### **Working Directory**
+The working directory is the local folder on your computer where you make changes to your files. It reflects the current state of your project and contains the files you're actively working on. Changes made in the working directory are not tracked by Git until they are staged or committed.
+
+### **Staging Area**
+The staging area is a temporary space where changes are prepared before committing them to the repository. It allows you to select which changes to include in the next commit. Files must be added to the staging area using the `git add` command.
+
+#### Workflow Example:
+1. Make changes in the **Working Directory**.
+2. Use `git add` to move changes to the **Staging Area**.
+3. Use `git commit` to save the changes from the staging area to the repository.
+
+---
+
+## **Git Init and Git Status**
+
+### **`git init`**
+The `git init` command initializes a new Git repository in the specified directory. This command creates a `.git` folder that contains all the metadata and history for the repository.
+
+#### **Usage**:
+```bash
+git init [directory]
+```
+
+- If no directory is specified, it initializes the current folder.
+
+#### **Options**:
+- `--bare`: Initializes a bare repository that does not have a working directory. Bare repositories are typically used for remote repositories.
+  ```bash
+  git init --bare
+  ```
+- `--quiet`: Suppresses the output message.
+  ```bash
+  git init --quiet
+  ```
+
+### **`git status`**
+The `git status` command displays the state of the working directory and staging area. It shows which changes have been staged, which have not, and which files are not being tracked by Git.
+
+#### **Usage**:
+```bash
+git status [options]
+```
+
+#### **Options**:
+- `--short`: Provides a brief summary of the status.
+  ```bash
+  git status --short
+  ```
+- `--branch`: Displays information about the current branch.
+  ```bash
+  git status --branch
+  ```
+- `--ignored`: Lists the ignored files.
+  ```bash
+  git status --ignored
+  ```
+
+---
