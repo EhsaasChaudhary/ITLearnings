@@ -71,6 +71,22 @@ git init [directory]
   ```bash
   git init --quiet
   ```
+- `--shared[=permissions]`: Configures repository permissions to be shared among a group. Common values for permissions are `group`, `all`, or `umask`.
+  ```bash
+  git init --shared=group
+  ```
+- `--separate-git-dir=<git-dir>`: Creates a Git repository with the `.git` folder stored in a separate directory.
+  ```bash
+  git init --separate-git-dir=/path/to/git-dir
+  ```
+- `--bare`: Initializes a bare repository that does not have a working directory. Bare repositories are typically used for remote repositories.
+  ```bash
+  git init --bare
+  ```
+- `--quiet`: Suppresses the output message.
+  ```bash
+  git init --quiet
+  ```
 
 ### **`git status`**
 The `git status` command displays the state of the working directory and staging area. It shows which changes have been staged, which have not, and which files are not being tracked by Git.
