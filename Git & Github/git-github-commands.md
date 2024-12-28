@@ -234,7 +234,7 @@ git rm [options] <file-name>
 
   ---
 
-  ## **Git Checkout**
+## **Git Checkout**
 
 ### **`git checkout`**
 The `git checkout` command is used to switch between branches or restore files in a Git repository.
