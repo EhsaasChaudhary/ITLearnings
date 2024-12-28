@@ -232,7 +232,7 @@ git rm [options] <file-name>
   git rm --dry-run <file-name>
   ```
 
-  ---
+---
 
 ## **Git Checkout**
 
