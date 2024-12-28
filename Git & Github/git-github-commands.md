@@ -1,8 +1,7 @@
 # Git / Github Commands
 
-## **Git Init and Git Status**
+## **Git Init**
 
-### **`git init`**
 The `git init` command initializes a new Git repository in the specified directory. This command creates a `.git` folder that contains all the metadata and history for the repository.
 
 #### **Usage**:
@@ -34,7 +33,7 @@ git init [directory]
   git init -b <branch-name>
   ```
 
-### **`git status`**
+## **Git Status**
 The `git status` command displays the state of the working directory and staging area. It shows which changes have been staged, which have not, and which files are not being tracked by Git.
 
 #### **Usage**:
@@ -58,9 +57,7 @@ git status [options]
 
 ---
 
-## **Git Add, Git Log, and Git Commit**
-
-### **`git add`**
+## **git add**
 The `git add` command adds changes in the working directory to the staging area, preparing them for a commit.
 
 #### **Usage**:
@@ -86,7 +83,7 @@ git add [file-pattern]
   git add -p
   ```
 
-### **`git log`**
+## **git log**
 The `git log` command displays the commit history of a repository, showing the sequence of commits.
 
 #### **Usage**:
@@ -116,7 +113,7 @@ git log [options]
   git log -p
   ```
 
-### **`git commit`**
+## **git commit**
 The `git commit` command saves the staged changes to the repository, creating a new commit.
 
 #### **Usage**:
