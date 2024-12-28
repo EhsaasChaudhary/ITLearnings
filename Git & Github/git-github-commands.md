@@ -165,6 +165,10 @@ git diff [options]
   ```bash
   git diff --cached
   ```
+  - Compare staging area to the last staged commit:
+  ```bash
+  git diff --staged
+  ```
 - Compare two commits:
   ```bash
   git diff <commit1> <commit2>
@@ -191,4 +195,41 @@ git diff [options]
   ```
 
 ---
+
+## **Git Remove (Git RM)**
+
+### **`git rm`**
+The `git rm` command is used to remove files from both the working directory and the staging area.
+
+#### **What It Does**:
+- Deletes the specified files from the working directory.
+- Stages the removal of these files, so the deletion is recorded in the next commit.
+
+#### **Usage**:
+```bash
+git rm [options] <file-name>
+```
+
+#### **Options**:
+- Remove a file and stage the removal:
+  ```bash
+  git rm <file-name>
+  ```
+- Remove multiple files:
+  ```bash
+  git rm file1 file2
+  ```
+- `--cached`: Removes the file only from the staging area while keeping it in the working directory.
+  ```bash
+  git rm --cached <file-name>
+  ```
+- `-f` or `--force`: Forces the removal of a file.
+  ```bash
+  git rm -f <file-name>
+  ```
+- `--dry-run`: Shows what files would be removed without actually deleting them.
+  ```bash
+  git rm --dry-run <file-name>
+  ```
+
 
