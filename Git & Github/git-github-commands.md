@@ -232,4 +232,154 @@ git rm [options] <file-name>
   git rm --dry-run <file-name>
   ```
 
+  ---
+
+  ## **Git Checkout**
+
+### **`git checkout`**
+The `git checkout` command is used to switch between branches or restore files in a Git repository.
+
+#### **What It Does**:
+- Switches to an existing branch.
+- Creates a new branch and switches to it (with `-b` option).
+- Restores a specific file or files to a previous state.
+
+#### **Usage**:
+```bash
+git checkout [options] <branch-name>
+```
+
+#### **Options**:
+- Switch to an existing branch:
+  ```bash
+  git checkout <branch-name>
+  ```
+- Create and switch to a new branch:
+  ```bash
+  git checkout -b <new-branch-name>
+  ```
+- Restore a file to its state in the last commit:
+  ```bash
+  git checkout -- <file-name>
+  ```
+- Switch to a specific commit (detached HEAD state):
+  ```bash
+  git checkout <commit-hash>
+  ```
+- `--orphan <new-branch-name>`: Creates a new branch with no history.
+  ```bash
+  git checkout --orphan <new-branch-name>
+  ```
+- `--detach`: Operates in a detached HEAD state, allowing inspection of an arbitrary commit.
+  ```bash
+  git checkout --detach <commit-hash>
+  ```
+
+---
+
+## Git Revert
+
+### `git revert`
+The `git revert` command is used to undo changes in a Git repository by creating a new commit that reverses the changes introduced by a previous commit.
+
+#### What It Does:
+- Reverts changes made by a specific commit.
+- Creates a new commit to record the reversal.
+- Does not alter the commit history (unlike `git reset`).
+
+#### Usage:
+```bash
+git revert [options] <commit-hash>
+```
+
+#### Options:
+- Revert a specific commit:
+  ```bash
+  git revert <commit-hash>
+  ```
+- Revert multiple commits interactively:
+  ```bash
+  git revert -i <commit-range>
+  ```
+- Abort a revert operation in progress:
+  ```bash
+  git revert --abort
+  ```
+- Revert a commit without creating a new commit (apply changes to the working directory):
+  ```bash
+  git revert --no-commit <commit-hash>
+  ```
+- Edit the commit message for the revert:
+  ```bash
+  git revert --edit <commit-hash>
+  ```
+
+---
+
+## Git Reset
+
+### `git reset`
+The `git reset` command is used to undo changes in a Git repository by moving the current branch’s HEAD to a specific state, effectively resetting the repository to that point. It modifies the staging area (index) and the working directory depending on the options used. Unlike `git revert`, which creates a new commit to reverse changes, `git reset` can alter the commit history by removing commits from the current branch.
+
+#### What It Does:
+- **Moves the HEAD**: It changes the current branch’s HEAD to a specific commit.
+- **Modifies the Staging Area**: It can modify the index (staging area) to match the new commit.
+- **Modifies the Working Directory**: It can update the working directory to reflect the state of the commit.
+
+#### Usage:
+```bash
+git reset [options] <commit-hash>
+```
+
+#### Options:
+1. **Soft Reset (`--soft`)**:
+   - Moves the HEAD to a specified commit but **keeps changes in the staging area**. This allows you to amend or commit those changes later.
+   - **Usage**:
+     ```bash
+     git reset --soft <commit-hash>
+     ```
+   - **Use Case**: If you want to undo a commit but keep the changes staged for a new commit.
+
+2. **Mixed Reset (`--mixed`)** (default option):
+   - Moves the HEAD to a specified commit and **unstages** changes (removes changes from the staging area) but keeps the modifications in the working directory.
+   - **Usage**:
+     ```bash
+     git reset --mixed <commit-hash>
+     ```
+   - **Use Case**: If you want to unstage changes and leave them in your working directory.
+
+3. **Hard Reset (`--hard`)**:
+   - Moves the HEAD to a specified commit and **resets both the staging area and working directory** to match the specified commit. Any uncommitted changes are lost.
+   - **Usage**:
+     ```bash
+     git reset --hard <commit-hash>
+     ```
+   - **Use Case**: If you want to discard changes completely and reset to a specific commit. **Warning**: This is destructive and can lead to data loss if there are uncommitted changes.
+
+4. **Keep Reset (`--keep`)**:
+   - Resets the HEAD and updates the staging area to match the specified commit, but **keeps changes in the working directory**. If there are conflicting changes, it prevents the reset from happening.
+   - **Usage**:
+     ```bash
+     git reset --keep <commit-hash>
+     ```
+   - **Use Case**: If you want to reset the staging area to a previous commit but keep changes in the working directory without discarding any conflicting changes.
+
+5. **Merge Reset (`--merge`)**:
+   - Similar to the `--keep` option, but it allows resetting with a little more flexibility. It preserves the working directory and attempts to preserve the index (staging area), but conflicts may arise when there are changes in both the commit history and the working directory.
+   - **Usage**:
+     ```bash
+     git reset --merge <commit-hash>
+     ```
+   - **Use Case**: When you want to reset the branch to a specific state but want to preserve most of your current changes.
+
+6. **Reset to the Previous Commit**:
+   - To reset to the previous commit, you can use the shorthand `HEAD~1`:
+     ```bash
+     git reset --hard HEAD~1
+     ```
+   - **Use Case**: This can be helpful to undo the most recent commit and reset your working directory and staging area.
+
+---
+
+
 
