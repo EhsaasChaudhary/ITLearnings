@@ -57,7 +57,7 @@ git status [options]
 
 ---
 
-## **git add**
+## **Git add**
 The `git add` command adds changes in the working directory to the staging area, preparing them for a commit.
 
 #### **Usage**:
@@ -83,7 +83,7 @@ git add [file-pattern]
   git add -p
   ```
 
-## **git log**
+## **Git log**
 The `git log` command displays the commit history of a repository, showing the sequence of commits.
 
 #### **Usage**:
@@ -113,7 +113,7 @@ git log [options]
   git log -p
   ```
 
-## **git commit**
+## **Git commit**
 The `git commit` command saves the staged changes to the repository, creating a new commit.
 
 #### **Usage**:
