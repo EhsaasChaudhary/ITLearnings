@@ -140,3 +140,55 @@ git commit -m "Commit message"
   ```
 
 ---
+
+## **Git Diff**
+
+### **`git diff`**
+The `git diff` command displays the differences between various states of a Git repository.
+
+#### **What It Does**:
+- Shows changes in the working directory that have not yet been staged.
+- Displays differences between the staging area and the last commit.
+- Compares two specific commits or branches.
+
+#### **Usage**:
+```bash
+git diff [options]
+```
+
+#### **Options**:
+- Compare working directory to staging area:
+  ```bash
+  git diff
+  ```
+- Compare staging area to the last commit:
+  ```bash
+  git diff --cached
+  ```
+- Compare two commits:
+  ```bash
+  git diff <commit1> <commit2>
+  ```
+- Compare changes for a specific file:
+  ```bash
+  git diff <file-name>
+  ```
+- `--stat`: Displays a summary of changes with the number of insertions and deletions.
+  ```bash
+  git diff --stat
+  ```
+- `--name-only`: Shows only the names of changed files.
+  ```bash
+  git diff --name-only
+  ```
+- `-p`: Displays the patch format of the changes.
+  ```bash
+  git diff -p
+  ```
+- `--color`: Forces colored output for better readability.
+  ```bash
+  git diff --color
+  ```
+
+---
+
