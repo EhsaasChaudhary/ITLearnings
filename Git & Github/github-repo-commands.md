@@ -14,51 +14,17 @@ git init
 ```
 This command initializes a new Git repository in the current directory.
 
-### Options for `git init`
-- `--bare`: Creates a bare repository for collaboration.
-  ```bash
-  git init --bare
-  ```
-- `--separate-git-dir <directory>`: Places the `.git` directory in a separate location.
-  ```bash
-  git init --separate-git-dir <path>
-  ```
-
 ## 2. Add Files to the Repository
 ```bash
 git add .
 ```
 This command stages all the files in your directory for a commit.
 
-### Options for `git add`
-- `git add <filename>`: Stages a specific file.
-  ```bash
-  git add file.txt
-  ```
-- `-p`: Interactively stages changes, allowing selective staging of hunks.
-  ```bash
-  git add -p
-  ```
-
 ## 3. Commit the Files
 ```bash
 git commit -m "Initial commit"
 ```
 This command commits your staged files with a message describing the changes.
-
-### Options for `git commit`
-- `-a`: Automatically stages modified and deleted files.
-  ```bash
-  git commit -am "Updated files"
-  ```
-- `--amend`: Modifies the most recent commit.
-  ```bash
-  git commit --amend -m "Updated message"
-  ```
-- `--no-edit`: Amends the last commit without changing its message.
-  ```bash
-  git commit --amend --no-edit
-  ```
 
 ## 4. Add the Remote Repository
 ```bash
