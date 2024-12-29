@@ -14,11 +14,31 @@ git init
 ```
 This command initializes a new Git repository in the current directory.
 
+### Options for `git init`
+- `--bare`: Creates a bare repository for collaboration.
+  ```bash
+  git init --bare
+  ```
+- `--separate-git-dir <directory>`: Places the `.git` directory in a separate location.
+  ```bash
+  git init --separate-git-dir <path>
+  ```
+
 ## 2. Add Files to the Repository
 ```bash
 git add .
 ```
 This command stages all the files in your directory for a commit.
+
+### Options for `git add`
+- `git add <filename>`: Stages a specific file.
+  ```bash
+  git add file.txt
+  ```
+- `-p`: Interactively stages changes, allowing selective staging of hunks.
+  ```bash
+  git add -p
+  ```
 
 ## 3. Commit the Files
 ```bash
@@ -26,11 +46,39 @@ git commit -m "Initial commit"
 ```
 This command commits your staged files with a message describing the changes.
 
+### Options for `git commit`
+- `-a`: Automatically stages modified and deleted files.
+  ```bash
+  git commit -am "Updated files"
+  ```
+- `--amend`: Modifies the most recent commit.
+  ```bash
+  git commit --amend -m "Updated message"
+  ```
+- `--no-edit`: Amends the last commit without changing its message.
+  ```bash
+  git commit --amend --no-edit
+  ```
+
 ## 4. Add the Remote Repository
 ```bash
-git remote add origin git@github.com:EhsaasChaudhary/gitrepo.git
+git remote add origin git@github.com:EhsaasChaudhary/dfdf.git
 ```
 This links your local repository to a remote repository hosted on GitHub.
+
+### Options for `git remote`
+- `git remote -v`: Lists the remotes and their URLs.
+  ```bash
+  git remote -v
+  ```
+- `git remote rename <old-name> <new-name>`: Renames a remote.
+  ```bash
+  git remote rename origin upstream
+  ```
+- `git remote remove <name>`: Removes a remote.
+  ```bash
+  git remote remove origin
+  ```
 
 ## 5. Rename the Default Branch
 ```bash
@@ -38,12 +86,40 @@ git branch -M main
 ```
 This command renames the default branch to `main`.
 
+### Options for `git branch`
+- `git branch -a`: Lists all branches, including remote branches.
+  ```bash
+  git branch -a
+  ```
+- `git branch -d <branch>`: Deletes a local branch.
+  ```bash
+  git branch -d feature-branch
+  ```
+- `git branch --set-upstream-to=<remote>/<branch>`: Sets upstream tracking for a branch.
+  ```bash
+  git branch --set-upstream-to=origin/main
+  ```
+
 ## 6. Push the Code to the Remote Repository
 ```bash
 git push -u origin main
 ```
 This command pushes the changes in your local `main` branch to the `main` branch of the remote repository and sets the remote as the default upstream.
 
+### Options for `git push`
+- `-f`: Forces the push, overwriting changes.
+  ```bash
+  git push -f
+  ```
+- `--tags`: Pushes all tags to the remote repository.
+  ```bash
+  git push --tags
+  ```
+- `--delete <remote>/<branch>`: Deletes a branch on the remote repository.
+  ```bash
+  git push origin --delete feature-branch
+  ```
+  
 ## 7. Git Tags
 
 Tags are used in Git to mark specific points in a repository's history, often used to indicate release versions (e.g., `v1.0`, `v2.1`). Tags are immutable references to commits.
