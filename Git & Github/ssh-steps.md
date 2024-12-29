@@ -30,7 +30,7 @@
 2. Go to **Settings**:
    - Click on your profile picture (top-right corner) > **Settings** > **SSH and GPG Keys**.
 3. Click **New SSH Key**.
-4. Add a title (e.g., `My Laptop`) and paste the public key into the "Key" field.
+4. Add a title (e.g., `EC Laptop`) and paste the public key into the "Key" field.
 5. Click **Add SSH Key**.
 
 ## 6. Verify the SSH Connection
@@ -42,6 +42,6 @@ ssh -T git@github.com
 
 - You should see a message like this:
   ```bash
-  Hi <username>! You've successfully authenticated, but GitHub does not provide shell access.
+  Hi EhsaasChaudhary! You've successfully authenticated, but GitHub does not provide shell access.
   ```
   ---
