@@ -210,3 +210,151 @@ git show <object>
 The `git show` command is a powerful tool for inspecting repository history and understanding changes. It combines commit and diff information for a holistic view of the repository state.
 
 ---
+
+## 9. Git Switch
+
+The `git switch` command is a modern replacement for branch-related operations previously handled by `git checkout`. It simplifies switching branches and creating new branches.
+
+### Syntax
+```bash
+git switch [options] <branch-name>
+```
+
+### Common Use Cases
+1. **Switching to an Existing Branch**:
+   ```bash
+   git switch <branch-name>
+   ```
+   Example:
+   ```bash
+   git switch main
+   ```
+
+2. **Creating and Switching to a New Branch**:
+   ```bash
+   git switch -c <new-branch-name>
+   ```
+   Example:
+   ```bash
+   git switch -c feature/login-module
+   ```
+
+3. **Switching to a Remote-Tracking Branch**:
+   ```bash
+   git switch --track <remote-branch>
+   ```
+   Example:
+   ```bash
+   git switch --track origin/feature-xyz
+   ```
+
+### Options
+- `-c`: Creates a new branch and switches to it.
+- `--create`: Synonym for `-c`.
+- `--track`: Creates a new branch to track a remote branch.
+- `--detach`: Switches to a branch in a detached HEAD state.
+- `--discard-changes`: Discards local changes when switching branches (use with caution).
+
+### Examples
+- Switch to the `development` branch:
+  ```bash
+  git switch development
+  ```
+
+- Create and switch to a new branch named `feature-api`:
+  ```bash
+  git switch -c feature-api
+  ```
+
+- Switch to a remote-tracking branch:
+  ```bash
+  git switch --track origin/bugfix-123
+  ```
+
+- Switch to a branch in detached HEAD state:
+  ```bash
+  git switch --detach feature-old
+  ```
+
+### Notes
+- `git switch` is available in Git 2.23 and later.
+- Unlike `git checkout`, `git switch` focuses exclusively on branch-related operations, making it less error-prone.
+- Use `git switch` instead of `git checkout` when working with branches for clearer intent.
+
+## 10. Git Restore
+
+The `git restore` command is used to restore files or revert changes in the working directory and staging area. It was introduced in Git 2.23 as part of the effort to separate the functionality of `git checkout` into more focused commands.
+
+### Syntax
+```bash
+git restore [options] <file-path>
+```
+
+### Common Use Cases
+1. **Restore a File to Its Last Committed State**:
+   ```bash
+   git restore <file-path>
+   ```
+   Example:
+   ```bash
+   git restore README.md
+   ```
+
+2. **Unstage a File**:
+   ```bash
+   git restore --staged <file-path>
+   ```
+   Example:
+   ```bash
+   git restore --staged index.html
+   ```
+
+3. **Restore All Files in the Repository**:
+   ```bash
+   git restore .
+   ```
+
+4. **Discard Changes Completely**:
+   ```bash
+   git restore --source=HEAD <file-path>
+   ```
+   Example:
+   ```bash
+   git restore --source=HEAD config.yaml
+   ```
+
+### Options
+- `--staged`: Unstages a file from the index (staging area) without changing the working directory.
+- `--source=<commit>`: Specifies the commit to restore from (default is `HEAD`).
+- `--worktree`: Restores changes in the working directory (default behavior).
+- `--`: Separates file paths from options, avoiding ambiguity.
+- `--patch` or `-p`: Allows interactive restoration of parts of a file.
+
+### Examples
+- Restore a single file to its committed state:
+  ```bash
+  git restore app.js
+  ```
+
+- Unstage a file:
+  ```bash
+  git restore --staged app.js
+  ```
+
+- Discard all local changes:
+  ```bash
+  git restore .
+  ```
+
+- Interactively restore hunks in a file:
+  ```bash
+  git restore -p app.js
+  ```
+
+### Notes
+- `git restore` is available in Git 2.23 and later.
+- Use this command instead of `git checkout` for file-specific operations for better clarity.
+- Be cautious when discarding changes as they cannot be recovered unless committed.
+
+---
+
