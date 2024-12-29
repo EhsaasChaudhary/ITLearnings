@@ -20,7 +20,7 @@ This command commits your staged files with a message describing the changes.
 
 ## 4. Add the Remote Repository
 ```bash
-git remote add origin git@github.com:EhsaasChaudhary/dfdf.git
+git remote add origin git@github.com:EhsaasChaudhary/gitrepo.git
 ```
 This links your local repository to a remote repository hosted on GitHub.
 
