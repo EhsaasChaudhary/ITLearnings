@@ -82,6 +82,7 @@ git add [file-pattern]
   ```bash
   git add -p
   ```
+  For more information about using `git add -p`, refer to this external article: [Explaining git add -p Command with Examples](https://www.slingacademy.com/article/explaining-git-add-p-command-examples)
 
 ## **Git log**
 The `git log` command displays the commit history of a repository, showing the sequence of commits.
