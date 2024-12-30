@@ -356,5 +356,203 @@ git restore [options] <file-path>
 - Use this command instead of `git checkout` for file-specific operations for better clarity.
 - Be cautious when discarding changes as they cannot be recovered unless committed.
 
+## 11. Git Merge
+
+The `git merge` command is used to combine the changes from one branch into the current branch. It is a key tool for integrating work in Git, often used in collaborative workflows.
+
+### Syntax
+```bash
+git merge [options] <branch>
+```
+
+### Common Use Cases
+1. **Merge a Branch into the Current Branch**:
+   ```bash
+   git merge <branch-name>
+   ```
+   Example:
+   ```bash
+   git merge feature-branch
+   ```
+
+2. **Merge with a Commit Message**:
+   ```bash
+   git merge -m "Merge message" <branch-name>
+   ```
+   Example:
+   ```bash
+   git merge -m "Merging feature into main" feature-branch
+   ```
+
+3. **Abort a Merge**:
+   ```bash
+   git merge --abort
+   ```
+   Use this if there are conflicts you do not want to resolve.
+
+### Options
+- `--no-ff`: Creates a merge commit even if a fast-forward merge is possible.
+  ```bash
+  git merge --no-ff <branch>
+  ```
+
+- `--squash`: Combines all changes into a single commit.
+  ```bash
+  git merge --squash <branch>
+  ```
+
+- `--abort`: Cancels the merge process.
+  ```bash
+  git merge --abort
+  ```
+
+- `--commit`: Completes the merge with a merge commit.
+
+- `-m <message>`: Adds a custom message to the merge commit.
+
+- `--strategy=<strategy>`: Specifies a merge strategy (e.g., `recursive`, `ours`, `theirs`).
+  ```bash
+  git merge --strategy=recursive <branch>
+  ```
+
+### Examples
+- Merge `development` into `main`:
+  ```bash
+  git merge development
+  ```
+
+- Merge with a commit message:
+  ```bash
+  git merge -m "Merging hotfix" hotfix-branch
+  ```
+
+- Perform a squash merge:
+  ```bash
+  git merge --squash feature-enhancement
+  ```
+
+- Abort an ongoing merge:
+  ```bash
+  git merge --abort
+  ```
+
+### Notes
+- Resolve conflicts manually if they arise during a merge. Use `git status` to see the conflicting files.
+- After resolving conflicts, complete the merge using:
+  ```bash
+  git commit
+  ```
+- Avoid merging too frequently without testing to maintain repository stability.
+
+## 12. Git Rebase
+
+The `git rebase` command is used to reapply commits from one branch onto another, effectively rewriting the commit history. It is commonly used to maintain a linear project history and integrate changes more cleanly.
+
+### Syntax
+```bash
+git rebase [options] <upstream>
+```
+
+### Common Use Cases
+1. **Rebase the Current Branch onto Another Branch**:
+   ```bash
+   git rebase <branch>
+   ```
+   Example:
+   ```bash
+   git rebase main
+   ```
+
+2. **Interactive Rebase to Edit Commit History**:
+   ```bash
+   git rebase -i <commit>
+   ```
+   Example:
+   ```bash
+   git rebase -i HEAD~3
+   ```
+   This opens an editor where you can modify, reorder, or squash commits.
+
+3. **Continue a Stopped Rebase**:
+   ```bash
+   git rebase --continue
+   ```
+   Use this after resolving conflicts during a rebase.
+
+4. **Abort a Rebase**:
+   ```bash
+   git rebase --abort
+   ```
+   This restores the branch to its original state before the rebase started.
+
+### Options
+- `-i` or `--interactive`: Starts an interactive rebase session, allowing you to edit the commit history.
+  ```bash
+  git rebase -i <commit>
+  ```
+
+- `--onto <new-base>`: Rebases the branch onto a different base.
+  ```bash
+  git rebase --onto <new-base> <upstream> <branch>
+  ```
+  Example:
+  ```bash
+  git rebase --onto main feature-branch-old feature-branch-new
+  ```
+
+- `--continue`: Continues the rebase after conflicts are resolved.
+
+- `--skip`: Skips the current conflicting commit and proceeds with the rebase.
+  ```bash
+  git rebase --skip
+  ```
+
+- `--abort`: Aborts the rebase and restores the branch to its original state.
+
+- `--preserve-merges`: Preserves merge commits during a rebase.
+  ```bash
+  git rebase --preserve-merges main
+  ```
+
+- `--no-ff`: Ensures that no fast-forward merges are performed during the rebase.
+
+### Examples
+- Rebase the current branch onto `development`:
+  ```bash
+  git rebase development
+  ```
+
+- Start an interactive rebase to modify the last 5 commits:
+  ```bash
+  git rebase -i HEAD~5
+  ```
+
+- Rebase `feature-branch` onto `main`:
+  ```bash
+  git rebase --onto main development feature-branch
+  ```
+
+- Skip a conflicting commit during a rebase:
+  ```bash
+  git rebase --skip
+  ```
+
+- Abort a rebase and undo all changes:
+  ```bash
+  git rebase --abort
+  ```
+
+  ### Notes
+- Use `git rebase` with caution when working on shared branches as it rewrites commit history.
+- To avoid conflicts, ensure your branch is up to date with the target branch before rebasing:
+  ```bash
+  git fetch origin
+  git rebase origin/main
+  ```
+- After rebasing, force-push the changes to the remote repository:
+  ```bash
+  git push --force
+  ```
+  
 ---
 
