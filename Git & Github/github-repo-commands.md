@@ -855,3 +855,83 @@ git fetch [options] [repository] [refspec]
 - To integrate fetched changes, follow up with `git merge` or `git rebase` as appropriate.
 
 ---
+
+## 16. Git Clone
+
+The `git clone` command creates a copy of an existing remote repository locally. It is commonly used to start working on an existing project.
+
+### Syntax
+```bash
+git clone [options] <repository> [directory]
+```
+
+### Common Use Cases
+1. **Clone a Repository into a New Directory**:
+   ```bash
+   git clone https://github.com/user/repo.git
+   ```
+   Creates a local copy of the repository.
+
+2. **Clone into a Specific Directory**:
+   ```bash
+   git clone https://github.com/user/repo.git my-folder
+   ```
+   Clones the repository into a folder named `my-folder`.
+
+3. **Clone Only a Specific Branch**:
+   ```bash
+   git clone -b main --single-branch https://github.com/user/repo.git
+   ```
+   Clones only the `main` branch.
+
+### Options
+- `-b` or `--branch`: Clone a specific branch instead of the default branch.
+  ```bash
+  git clone -b feature-branch https://github.com/user/repo.git
+  ```
+
+- `--single-branch`: Clone only the history of the specified branch.
+  ```bash
+  git clone --single-branch -b main https://github.com/user/repo.git
+  ```
+
+- `--depth`: Perform a shallow clone with a limited commit history.
+  ```bash
+  git clone --depth 1 https://github.com/user/repo.git
+  ```
+
+- `--recurse-submodules`: Clone submodules along with the repository.
+  ```bash
+  git clone --recurse-submodules https://github.com/user/repo.git
+  ```
+
+- `--mirror`: Clone a repository for use as a mirror, copying all refs and branches.
+  ```bash
+  git clone --mirror https://github.com/user/repo.git
+  ```
+
+### Examples
+- Clone a repository into the current directory:
+  ```bash
+  git clone https://github.com/user/repo.git .
+  ```
+
+- Clone a specific branch with limited commit history:
+  ```bash
+  git clone --depth 10 -b main https://github.com/user/repo.git
+  ```
+
+- Clone a repository along with its submodules:
+  ```bash
+  git clone --recurse-submodules https://github.com/user/repo.git
+  ```
+
+### Notes
+- After cloning, you can navigate into the repository and begin working:
+  ```bash
+  cd repo
+  ```
+- Ensure that you have the necessary permissions to clone private repositories.
+- Use `git remote -v` to verify the remote URLs of the cloned repository.
+
+---
