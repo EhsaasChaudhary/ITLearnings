@@ -678,5 +678,93 @@ git stash [options]
   ```bash
   git stash show -p stash@{0}
   ```
+
 ---
 
+## 14. Git Pull
+
+The `git pull` command is used to fetch and merge changes from a remote repository into your current branch. It combines `git fetch` and `git merge` into a single command.
+
+### Syntax
+```bash
+git pull [options] [repository] [refspec]
+```
+
+### Common Use Cases
+1. **Pull Changes from the Default Remote and Branch**:
+   ```bash
+   git pull
+   ```
+   Fetches and merges changes from the remote-tracking branch.
+
+2. **Pull Changes from a Specific Remote Branch**:
+   ```bash
+   git pull origin main
+   ```
+   Fetches and merges changes from the `main` branch of the `origin` remote.
+
+3. **Rebase Instead of Merging**:
+   ```bash
+   git pull --rebase
+   ```
+   Fetches changes and rebases your commits on top of them.
+
+### Options
+- `--rebase`: Rebase the current branch on top of the upstream branch after fetching changes.
+  ```bash
+  git pull --rebase
+  ```
+
+- `--all`: Fetches and merges changes from all configured remotes.
+  ```bash
+  git pull --all
+  ```
+
+- `--no-commit`: Fetches and merges changes without committing the result.
+  ```bash
+  git pull --no-commit
+  ```
+
+- `--squash`: Creates a single squashed commit for all changes fetched.
+  ```bash
+  git pull --squash
+  ```
+
+- `--no-rebase`: Ensures that the pull operation does not perform a rebase.
+  ```bash
+  git pull --no-rebase
+  ```
+
+### Examples
+- Fetch and merge changes from the `develop` branch:
+  ```bash
+  git pull origin develop
+  ```
+
+- Rebase your branch on top of the `main` branch:
+  ```bash
+  git pull --rebase origin main
+  ```
+
+- Fetch changes from all remotes:
+  ```bash
+  git pull --all
+  ```
+
+- Perform a pull without committing the merge result:
+  ```bash
+  git pull --no-commit
+  ```
+
+### Notes
+- If there are conflicts during the merge, resolve them and then commit the changes.
+- To pull changes from a specific remote and branch while rebasing:
+  ```bash
+  git pull --rebase origin feature-branch
+  ```
+- Ensure your local branch is up to date before pushing changes after a pull:
+  ```bash
+  git pull origin main
+  git push origin main
+  ```
+---
