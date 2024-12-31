@@ -48,7 +48,7 @@ This links your local repository to a remote repository hosted on GitHub.
 
 ---
 
-## 5. Rename the Default Branch
+## 5. Git Branch
 ```bash
 git branch -M main
 ```
