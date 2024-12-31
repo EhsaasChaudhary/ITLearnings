@@ -46,6 +46,8 @@ This links your local repository to a remote repository hosted on GitHub.
   git remote remove origin
   ```
 
+---
+
 ## 5. Rename the Default Branch
 ```bash
 git branch -M main
@@ -66,6 +68,8 @@ This command renames the default branch to `main`.
   git branch --set-upstream-to=origin/main
   ```
 
+---
+
 ## 6. Push the Code to the Remote Repository
 ```bash
 git push -u origin main
@@ -85,7 +89,8 @@ This command pushes the changes in your local `main` branch to the `main` branch
   ```bash
   git push origin --delete feature-branch
   ```
-  
+---
+
 ## 7. Git Tags
 
 Tags are used in Git to mark specific points in a repository's history, often used to indicate release versions (e.g., `v1.0`, `v2.1`). Tags are immutable references to commits.
@@ -143,6 +148,7 @@ While tags cannot be directly modified, you can check out a tag to view its asso
 ```bash
 git checkout <tagname>
 ```
+---
 
 ## 8. Git Show
 
@@ -281,6 +287,8 @@ git switch [options] <branch-name>
 - Unlike `git checkout`, `git switch` focuses exclusively on branch-related operations, making it less error-prone.
 - Use `git switch` instead of `git checkout` when working with branches for clearer intent.
 
+---
+
 ## 10. Git Restore
 
 The `git restore` command is used to restore files or revert changes in the working directory and staging area. It was introduced in Git 2.23 as part of the effort to separate the functionality of `git checkout` into more focused commands.
@@ -355,6 +363,8 @@ git restore [options] <file-path>
 - `git restore` is available in Git 2.23 and later.
 - Use this command instead of `git checkout` for file-specific operations for better clarity.
 - Be cautious when discarding changes as they cannot be recovered unless committed.
+
+---
 
 ## 11. Git Merge
 
@@ -443,6 +453,8 @@ git merge [options] <branch>
   git commit
   ```
 - Avoid merging too frequently without testing to maintain repository stability.
+
+---
 
 ## 12. Git Rebase
 
@@ -553,6 +565,118 @@ git rebase [options] <upstream>
   ```bash
   git push --force
   ```
-  
+---
+
+## 13. Git Stash
+
+The `git stash` command temporarily shelves changes in your working directory so you can work on something else without committing the changes.
+
+### Syntax
+```bash
+git stash [options]
+```
+
+### Common Use Cases
+1. **Save Changes**:
+   ```bash
+   git stash
+   ```
+   Temporarily saves all changes in the working directory.
+
+2. **List Stashes**:
+   ```bash
+   git stash list
+   ```
+   Displays a list of all saved stashes.
+
+3. **Apply Stashed Changes**:
+   ```bash
+   git stash apply
+   ```
+   Reapplies the most recent stash to your working directory.
+
+4. **Apply and Drop Stash**:
+   ```bash
+   git stash pop
+   ```
+   Reapplies the most recent stash and removes it from the stash list.
+
+5. **Drop a Specific Stash**:
+   ```bash
+   git stash drop stash@{index}
+   ```
+   Removes a specific stash from the list.
+
+6. **Clear All Stashes**:
+   ```bash
+   git stash clear
+   ```
+   Deletes all saved stashes.
+
+### Options
+- `--keep-index`: Stashes only the changes in the working directory, preserving the staged changes.
+  ```bash
+  git stash --keep-index
+  ```
+
+- `--include-untracked`: Includes untracked files in the stash.
+  ```bash
+  git stash --include-untracked
+  ```
+
+- `--all`: Includes all files (tracked, untracked, and ignored) in the stash.
+  ```bash
+  git stash --all
+  ```
+
+- `list`: Displays all stashed changes.
+
+- `pop`: Applies the stash and removes it from the stash list.
+
+- `apply`: Reapplies the stash without removing it from the stash list.
+
+- `drop`: Deletes a specific stash by its index.
+
+### Examples
+- Save changes and include untracked files:
+  ```bash
+  git stash --include-untracked
+  ```
+
+- Reapply the most recent stash:
+  ```bash
+  git stash apply
+  ```
+
+- Remove all stashes:
+  ```bash
+  git stash clear
+  ```
+
+- View all stashed changes:
+  ```bash
+  git stash list
+  ```
+
+- Apply and remove the most recent stash:
+  ```bash
+  git stash pop
+  ```
+
+- Drop a specific stash:
+  ```bash
+  git stash drop stash@{1}
+  ```
+
+### Notes
+- Stashing is useful when you want to switch branches without committing your changes.
+- You can stash specific files using:
+  ```bash
+  git stash push -m "message" <file>
+  ```
+- Use `git stash show` to view the changes in a stash:
+  ```bash
+  git stash show -p stash@{0}
+  ```
 ---
 
