@@ -125,8 +125,14 @@
    - Tests if port 443 (HTTPS) on Google is reachable.
 
    **Local Test:**
-   - Run a local server (e.g., Python's HTTP server) using `python -m http.server 8080`.
-   - Use `nc -zv 127.0.0.1 8080` to check port connectivity.
+   - Run a local server (e.g., Python's HTTP server) using: 
+   ```bash
+   python -m http.server 808
+   ```
+   - Check port connectivity using:
+   ```bash
+    nc -zv 127.0.0.1 8080
+   ```
 
 2. **Ping a server to check connectivity:**
    ```bash
