@@ -70,7 +70,8 @@ This command renames the default branch to `main`.
 
 ---
 
-## 6. Push the Code to the Remote Repository
+## 6. Git Push
+- Push the Code to the Remote Repository
 ```bash
 git push -u origin main
 ```
