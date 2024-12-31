@@ -768,3 +768,89 @@ git pull [options] [repository] [refspec]
   git push origin main
   ```
 ---
+
+## 15. Git Fetch
+
+The `git fetch` command downloads objects and refs from another repository. Unlike `git pull`, it does not merge the changes into your current branch but updates your local tracking branches with the latest changes from the remote.
+
+### Syntax
+```bash
+git fetch [options] [repository] [refspec]
+```
+
+### Common Use Cases
+1. **Fetch Updates from the Default Remote**:
+   ```bash
+   git fetch
+   ```
+   Retrieves all updates from the remote repository without applying them to your working directory.
+
+2. **Fetch from a Specific Remote**:
+   ```bash
+   git fetch origin
+   ```
+   Updates the local tracking branches from the `origin` remote.
+
+3. **Fetch a Specific Branch**:
+   ```bash
+   git fetch origin main
+   ```
+   Fetches updates only for the `main` branch from the `origin` remote.
+
+### Options
+- `--all`: Fetches updates from all remotes.
+  ```bash
+  git fetch --all
+  ```
+
+- `--dry-run`: Displays what would be fetched without actually fetching the updates.
+  ```bash
+  git fetch --dry-run
+  ```
+
+- `--prune`: Removes local references to remote branches that no longer exist.
+  ```bash
+  git fetch --prune
+  ```
+
+- `--tags`: Fetches all tags from the remote repository.
+  ```bash
+  git fetch --tags
+  ```
+
+- `--depth <depth>`: Fetches a limited history of commits for shallow repositories.
+  ```bash
+  git fetch --depth 1
+  ```
+
+### Examples
+- Fetch updates from all remotes and prune stale branches:
+  ```bash
+  git fetch --all --prune
+  ```
+
+- Fetch a specific branch and display details without making changes:
+  ```bash
+  git fetch --dry-run origin feature-branch
+  ```
+
+- Fetch all tags:
+  ```bash
+  git fetch --tags
+  ```
+
+- Fetch updates with a shallow clone:
+  ```bash
+  git fetch --depth 1
+  ```
+
+### Notes
+- Use `git fetch` regularly to keep your tracking branches updated.
+- Combine `git fetch` with `git log` to inspect remote changes before merging them into your local branch.
+  ```bash
+  git fetch origin main
+  git log HEAD..origin/main
+  ```
+- To integrate fetched changes, follow up with `git merge` or `git rebase` as appropriate.
+
+---
