@@ -5,7 +5,6 @@
 - **Example**:
   ```bash
   $ pwd
-  /home/feilzz
   ```
   Output: `/home/feilzz`
 - **Options**: 
@@ -18,8 +17,8 @@
 - **Example**:
   ```bash
   $ whoami
-  feilzz
   ```
+  Output: `feilzz`
 - **Options**:
   - `--help`: Displays help information about `whoami`.
 
@@ -30,8 +29,8 @@
 - **Example**:
   ```bash
   $ date
-  Wed Jan 1 09:10:33 UTC 2025
   ```
+  Output: `Wed Jan 1 09:10:33 UTC 2025`
 - **Options**:
   - `+%Y-%m-%d`: Displays the date in `YYYY-MM-DD` format.
     ```bash
@@ -43,16 +42,34 @@
     $ date +%T
     09:10:33
     ```
-
 ---
 
-## 4. `ls` - List Directory Contents
+## 4. `mkdir` - Make Directory
+- **Description**: Creates a new directory.
+- **Example**:
+  ```bash
+  $ mkdir linux
+  ```
+  Creates a directory named `linux` in the current path.
+- **Options**:
+  - `-p`: Creates parent directories as needed.
+    ```bash
+    $ mkdir -p parent/child
+    ```
+  - `-v`: Prints a message for each created directory.
+    ```bash
+    $ mkdir -v linux
+    mkdir: created directory 'linux'
+    ```
+---
+
+## 5. `ls` - List Directory Contents
 - **Description**: Displays the contents of the current directory.
 - **Example**:
   ```bash
   $ ls
-  linux
   ```
+  Output: `linux`
 - **Options**:
   - `-a`: Shows all files, including hidden files.
     ```bash
@@ -72,26 +89,6 @@
 
 ---
 
-## 5. `mkdir` - Make Directory
-- **Description**: Creates a new directory.
-- **Example**:
-  ```bash
-  $ mkdir linux
-  ```
-  Creates a directory named `linux` in the current path.
-- **Options**:
-  - `-p`: Creates parent directories as needed.
-    ```bash
-    $ mkdir -p parent/child
-    ```
-  - `-v`: Prints a message for each created directory.
-    ```bash
-    $ mkdir -v linux
-    mkdir: created directory 'linux'
-    ```
-
----
-
 ## 6. `cd` - Change Directory
 - **Description**: Navigates between directories.
 - **Example**:
@@ -105,42 +102,6 @@
     - `cd ..`: Moves to the parent directory.
     - `cd ~`: Moves to the home directory.
     - `cd -`: Switches to the previous directory.
-
----
-
-## 7. `ls -a` - List All Files
-- **Description**: Displays all files, including hidden ones.
-- **Example**:
-  ```bash
-  $ ls -a
-  .  ..  .bashrc  linux
-  ```
-
----
-
-## 8. `.bashrc` - Shell Configuration File
-- **Description**: A script file executed whenever a new terminal session starts for custom shell configuration.
-- **Example**:
-  ```bash
-  $ nano ~/.bashrc
-  ```
-  Add aliases or environment variables.
-
----
-
-## 9. `..` - Parent Directory Shortcut
-- **Description**: Used with `cd` or `ls` to refer to the parent directory.
-- **Example**:
-  ```bash
-  $ cd ..
-  $ pwd
-  /home
-  ```
-
----
-
-## 10. `.sudo_as_admin_successful`
-- **Description**: A hidden file created when a user first uses `sudo` successfully. Used for tracking purposes.
 
 ---
 
