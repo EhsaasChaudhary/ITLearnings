@@ -1,4 +1,5 @@
-# VPN and SSH Overview
+
+# VPN Overview
 
 ## What is VPN?
 A Virtual Private Network (VPN) creates a secure, encrypted connection between your device and a remote server. VPNs are commonly used for:
@@ -27,7 +28,15 @@ nmcli connection down <vpn_name>
 ```
 *Use Case:* Terminate the VPN connection.
 
+## Best Practices
+
+- Use strong authentication methods (e.g., certificates).
+- Avoid public VPN services for sensitive tasks.
+- Regularly update VPN client software.
+
 ---
+
+# SSH Overview
 
 ## What is SSH?
 Secure Shell (SSH) is a cryptographic network protocol for secure communication over an insecure network. It is commonly used for:
@@ -75,7 +84,12 @@ ssh user@host "ls -la"
 ```
 *Use Case:* Run a command remotely without starting an interactive shell.
 
----
+## Best Practices
+
+- Use SSH keys instead of passwords.
+- Restrict SSH access to specific IPs.
+- Disable root login and use non-default ports.
+
 
 ## Advanced Use Cases
 
@@ -96,20 +110,6 @@ ssh -D 9050 user@host
 rsync -avz -e ssh /local/path/ user@host:/remote/path/
 ```
 *Use Case:* Synchronize directories between a local and remote machine.
-
----
-
-## Best Practices
-
-### VPN
-- Use strong authentication methods (e.g., certificates).
-- Avoid public VPN services for sensitive tasks.
-- Regularly update VPN client software.
-
-### SSH
-- Use SSH keys instead of passwords.
-- Restrict SSH access to specific IPs.
-- Disable root login and use non-default ports.
 
 ---
 
@@ -186,8 +186,6 @@ sudo ufw limit 22/tcp
 ```
 *Use Case:* Protect against brute force attacks on SSH.
 
----
-
 ## Best Practices
 
 ### General Firewall Tips
@@ -219,7 +217,6 @@ The Lightweight Directory Access Protocol (LDAP) is a protocol for accessing and
 - **Interoperability:** Works with a variety of systems and platforms.
 - **Authentication Support:** Can be integrated with security mechanisms like SASL.
 
----
 
 ### Common LDAP Commands and Examples
 
@@ -253,8 +250,6 @@ ldapdelete -x -D "cn=admin,dc=example,dc=com" -W "cn=user,dc=example,dc=com"
 ```
 *Use Case:* Remove obsolete entries from the directory.
 
----
-
 ### Advanced Use Cases
 
 #### Bulk Import Entries
@@ -286,8 +281,6 @@ ldapsearch -x -LLL -b "dc=example,dc=com" > backup.ldif
 ldapdelete -x -D "cn=admin,dc=example,dc=com" -W "ou=groups,dc=example,dc=com"
 ```
 *Use Case:* Remove all entries within a specific branch of the directory.
-
----
 
 ## Best Practices
 
