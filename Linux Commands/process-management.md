@@ -1,4 +1,4 @@
-# 8. Process Management Commands
+# Process Management Commands
 
 ## 1. `ps` - Display Process Information
 - **Description**: Displays information about the currently running processes.
