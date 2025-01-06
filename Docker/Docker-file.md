@@ -30,15 +30,7 @@ Docker is an open-source platform that allows you to automate the deployment of 
 
 ---
 
-## Getting Started with Docker
-
-### Installing Docker
-Follow the official guide for your platform:
-- [Docker for Windows](https://docs.docker.com/desktop/install/windows/)
-- [Docker for macOS](https://docs.docker.com/desktop/install/mac/)
-- [Docker for Linux](https://docs.docker.com/desktop/install/linux/)
-
-Verify installation:
+### Verify installation:
 ```bash
 docker --version
 ```
@@ -73,7 +65,7 @@ A `Dockerfile` is used to create a custom Docker image. Below is an example:
 
 ```dockerfile
 # Use an official Node.js runtime as a base image
-FROM node:14
+FROM node:18
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -89,7 +81,7 @@ COPY . ./
 EXPOSE 3000
 
 # Command to run the application
-CMD ["node", "index.js"]
+CMD ["npm", "run", "dev"]
 ```
 
 Build the image and run the container:
@@ -107,18 +99,20 @@ Docker Compose allows you to define and run multi-container applications. A `doc
 ### Example: Node.js and MongoDB
 
 ```yaml
-version: '3.8'
 services:
-  app:
-    build: .
+  development:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      target: development
     ports:
       - "3000:3000"
-    depends_on:
-      - db
-  db:
-    image: mongo:4.4
-    ports:
-      - "27017:27017"
+    volumes:
+      - .:/app 
+      - /app/node_modules  
+    environment:
+      - NODE_ENV=development
+
 ```
 
 Start the application:
