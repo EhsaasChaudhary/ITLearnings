@@ -2,7 +2,7 @@
 
 The `git init` command initializes a new Git repository in the specified directory. This command creates a `.git` folder that contains all the metadata and history for the repository.
 
-### **Usage**:
+#### **Usage**:
 ```bash
 git init [directory]
 ```
