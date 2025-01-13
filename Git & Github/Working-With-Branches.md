@@ -302,3 +302,210 @@ git merge [options] <branch>
   ```
 - Avoid merging too frequently without testing to maintain repository stability.
 ---
+
+# Git Rebase
+
+The `git rebase` command is used to reapply commits from one branch onto another, effectively rewriting the commit history. It is commonly used to maintain a linear project history and integrate changes more cleanly.
+
+### Syntax
+```bash
+git rebase [options] <upstream>
+```
+
+### Common Use Cases
+1. **Rebase the Current Branch onto Another Branch**:
+   ```bash
+   git rebase <branch>
+   ```
+   Example:
+   ```bash
+   git rebase main
+   ```
+
+2. **Interactive Rebase to Edit Commit History**:
+   ```bash
+   git rebase -i <commit>
+   ```
+   Example:
+   ```bash
+   git rebase -i HEAD~3
+   ```
+   This opens an editor where you can modify, reorder, or squash commits.
+
+3. **Continue a Stopped Rebase**:
+   ```bash
+   git rebase --continue
+   ```
+   Use this after resolving conflicts during a rebase.
+
+4. **Abort a Rebase**:
+   ```bash
+   git rebase --abort
+   ```
+   This restores the branch to its original state before the rebase started.
+
+### Options
+- `-i` or `--interactive`: Starts an interactive rebase session, allowing you to edit the commit history.
+  ```bash
+  git rebase -i <commit>
+  ```
+
+- `--onto <new-base>`: Rebases the branch onto a different base.
+  ```bash
+  git rebase --onto <new-base> <upstream> <branch>
+  ```
+  Example:
+  ```bash
+  git rebase --onto main feature-branch-old feature-branch-new
+  ```
+
+- `--continue`: Continues the rebase after conflicts are resolved.
+
+- `--skip`: Skips the current conflicting commit and proceeds with the rebase.
+  ```bash
+  git rebase --skip
+  ```
+
+- `--abort`: Aborts the rebase and restores the branch to its original state.
+
+- `--preserve-merges`: Preserves merge commits during a rebase.
+  ```bash
+  git rebase --preserve-merges main
+  ```
+
+- `--no-ff`: Ensures that no fast-forward merges are performed during the rebase.
+
+### Examples
+- Rebase the current branch onto `development`:
+  ```bash
+  git rebase development
+  ```
+
+- Start an interactive rebase to modify the last 5 commits:
+  ```bash
+  git rebase -i HEAD~5
+  ```
+
+- Rebase `feature-branch` onto `main`:
+  ```bash
+  git rebase --onto main development feature-branch
+  ```
+
+- Skip a conflicting commit during a rebase:
+  ```bash
+  git rebase --skip
+  ```
+
+- Abort a rebase and undo all changes:
+  ```bash
+  git rebase --abort
+  ```
+
+  ### Notes
+- Use `git rebase` with caution when working on shared branches as it rewrites commit history.
+- To avoid conflicts, ensure your branch is up to date with the target branch before rebasing:
+  ```bash
+  git fetch origin
+  git rebase origin/main
+  ```
+- After rebasing, force-push the changes to the remote repository:
+  ```bash
+  git push --force
+  ```
+---
+
+# Git Cherry-Pick
+
+The `git cherry-pick` command is used to apply a specific commit from one branch onto another. It allows you to select specific changes without merging the entire branch.
+
+### Syntax
+```bash
+git cherry-pick [options] <commit-hash>
+```
+
+### Common Use Cases
+1. **Apply a Single Commit to the Current Branch**:
+   ```bash
+   git cherry-pick <commit-hash>
+   ```
+   Example:
+   ```bash
+   git cherry-pick a1b2c3d4
+   ```
+
+2. **Apply a Range of Commits**:
+   ```bash
+   git cherry-pick <start-commit>^..<end-commit>
+   ```
+   Example:
+   ```bash
+   git cherry-pick f1e2d3c4^..g5h6i7j8
+   ```
+
+3. **Apply Multiple Non-Sequential Commits**:
+   ```bash
+   git cherry-pick <commit1> <commit2> <commit3>
+   ```
+   Example:
+   ```bash
+   git cherry-pick a1b2c3d4 f5e6d7c8 g9h0i1j2
+   ```
+
+### Options
+- `-e` or `--edit`: Allows you to modify the commit message before applying it.
+  ```bash
+  git cherry-pick -e <commit-hash>
+  ```
+
+- `-n` or `--no-commit`: Applies the changes without committing them.
+  ```bash
+  git cherry-pick -n <commit-hash>
+  ```
+
+- `--continue`: Continues the cherry-pick after resolving conflicts.
+  ```bash
+  git cherry-pick --continue
+  ```
+
+- `--abort`: Aborts the cherry-pick and restores the branch to its original state.
+  ```bash
+  git cherry-pick --abort
+  ```
+
+- `--skip`: Skips the current conflicting commit and proceeds with the next one.
+  ```bash
+  git cherry-pick --skip
+  ```
+
+### Examples
+- Apply a specific commit to the current branch:
+  ```bash
+  git cherry-pick 123abc
+  ```
+
+- Apply a range of commits from another branch:
+  ```bash
+  git cherry-pick feature-branch^..main
+  ```
+
+- Modify the commit message while cherry-picking:
+  ```bash
+  git cherry-pick -e 456def
+  ```
+
+- Cherry-pick without committing the changes:
+  ```bash
+  git cherry-pick -n 789ghi
+  ```
+
+- Continue a stopped cherry-pick after resolving conflicts:
+  ```bash
+  git cherry-pick --continue
+  ```
+
+### Notes
+- `git cherry-pick` is useful when you want to backport specific fixes or features to a different branch.
+- Use `git log` or `git reflog` to find the commit hashes you want to cherry-pick.
+- Be cautious when cherry-picking changes across branches with different histories, as it may lead to conflicts.
+
+---
