@@ -78,7 +78,19 @@ git log [options]
   ```bash
   git log -p
   ```
-
+- `--grep`: Filter based on keywords/ commit message.
+  ```bash
+  git log --grep="keyword/CM"
+  ```
+  - `-n`: Filter limited number of commit.
+  ```bash
+  git log -n 5"
+  ```
+   - `--pretty`: Customize how the log is displayed:.
+  ```bash
+  git log --pretty=format:"%h - %an, %ar : %s"
+  ```
+  
 # Git commit
 The `git commit` command saves the staged changes to the repository, creating a new commit.
 
